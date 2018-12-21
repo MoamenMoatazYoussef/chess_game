@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 #include "common.h"
 
 class piece
@@ -7,7 +8,7 @@ class piece
 public:
 	piece()
 	{
-		_type = piece_type::none;
+		_type = piece_type::None;
 	}
 	piece(piece_type _t, player _p, short _pos)
 	{

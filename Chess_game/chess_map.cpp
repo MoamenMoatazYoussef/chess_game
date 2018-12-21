@@ -2,10 +2,11 @@
 
 chess_map::chess_map()
 {
-
+	init_black();
+	init_white();
 }
 
-int chess_map::get_position(short i, short j)
+short chess_map::get_position(short i, short j)
 {
 	return ((i * BOARD_SIDE_LENGTH) + j);
 }

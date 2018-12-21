@@ -25,15 +25,12 @@
 class chess_map
 {
 public:
-	inline chess_map()
-	{
-		init_black();
-		init_white();
-	}
+	inline chess_map();
 
 	~chess_map()
 	{
 		delete piece_map;
+		// Check deallocation of memory, lots of pointers
 	}
 
 	inline void init_black();
