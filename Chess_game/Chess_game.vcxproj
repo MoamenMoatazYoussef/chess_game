@@ -10,6 +10,22 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\components\chess_map.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\components\common.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\components\piece.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\controller.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\pieces\bishop.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\pieces\king.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\pieces\knight.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\pieces\pawn.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\pieces\queen.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\pieces\rook.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\components\chess_map.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\controller.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4056FF1A-15E3-4235-9E01-A2656C633AB4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -77,22 +93,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\bishop.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\chess_map.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\common.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\controller.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\king.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\knight.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\pawn.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\piece.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\queen.h" />
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\rook.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\chess_map.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\controller.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
