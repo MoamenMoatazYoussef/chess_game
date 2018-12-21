@@ -11,15 +11,17 @@ public:
 		_type = piece_type::None;
 	}
 
-	piece(piece_type _t, player _p, short _pos)
+	piece(piece_type _t, player _p, short _r, short _c)
 	{
-		_position = _pos;
+		_row = _r;
+		_col = _c;
 		_player = _p;
 		_type = _t;
 	}
 	~piece();
 
-	short get_current_position() { return _position; }
+	short get_row() { return _row; }
+	short get_col() { return _col; }
 	player get_player() { return _player; }
 	piece_type get_piece_type() { return _type; }
 	void print_type() { std::cout << (char)_type << " ";  }
@@ -27,5 +29,6 @@ public:
 private:
 	piece_type _type;
 	player _player;
-	short _position;
+	short _row;
+	short _col;
 };

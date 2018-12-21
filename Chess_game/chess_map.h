@@ -17,6 +17,11 @@
 #define BOARD_SIDE_LENGTH 8
 #define BOARD_AREA (BOARD_SIDE_LENGTH*BOARD_SIDE_LENGTH)
 
+#define BLACK_KING_ROW 0
+#define BLACK_PAWN_ROW 1
+#define WHITE_PAWN_ROW 6
+#define WHITE_KING_ROW 7
+
 enum Row{ A, B, C, D, E, F, G };
 
 class chess_map
@@ -38,9 +43,9 @@ public:
 
 	short get_col(piece*);
 
-	void set_piece(short, short , piece* );
+	void set_piece(short, short , piece*);
 
-	void move_piece(piece* , short );
+	void move_piece(short, short, piece*);
 
 	void print_map()
 	{

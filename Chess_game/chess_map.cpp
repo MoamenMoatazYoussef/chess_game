@@ -2,78 +2,79 @@
 
 chess_map::chess_map()
 {
+	for (int row = 2; row < BOARD_SIDE_LENGTH - 2; row++)
+		for (int col = 0; col < BOARD_SIDE_LENGTH; col++)
+			piece_map[row][col] = new piece();
 	//init_black();
 	//init_white();
-	piece* p = new pawn();
-	piece_map[PAWN_ROW_BLACK] = new piece();
-	piece_map[PAWN_ROW_BLACK]->print_type();
 }
 
-inline short chess_map::get_position(short i, short j)
+inline piece* chess_map::get_piece(short row, short col)
 {
-	return ((i * BOARD_SIDE_LENGTH) + j);
+	return piece_map[row][col];
 }
 
-inline piece* chess_map::get_piece(short i, short j)
+short chess_map::get_row(piece* p)
 {
-	return piece_map[get_position(i, j)];
+	return p->get_row();
 }
 
-inline void chess_map::set_piece(short i, short j, piece* p)
+short chess_map::get_col(piece* p)
 {
-	piece_map[get_position(i, j)] = p;
+	return p->get_col();
 }
 
-inline void chess_map::set_piece(short pos, piece* p)
+inline void chess_map::set_piece(short row, short col, piece* p)
 {
-	piece_map[pos] = p;
+	piece_map[row][col] = p;
 }
 
-inline void chess_map::move_piece(piece* p, short new_position)
+inline void chess_map::move_piece(short new_row, short new_col, piece* p)
 {
-	short old_position = p->get_current_position();
-	piece_map[new_position] = p;
-	piece_map[old_position] = new piece(); //encapsulation: should map know the piece's type?
+	short old_row = get_row(p);
+	short old_col = get_col(p);
+	piece_map[new_row][new_col] = p;
+	piece_map[old_row][old_col] = new piece(); //encapsulation: should map know the piece's type?
 }
 
 inline void chess_map::init_black()
 {
-	piece_map[PAWN_ROW_BLACK]     = new pawn();
-	piece_map[PAWN_ROW_BLACK + 1] = new pawn();
-	piece_map[PAWN_ROW_BLACK + 2] = new pawn();
-	piece_map[PAWN_ROW_BLACK + 3] = new pawn();
-	piece_map[PAWN_ROW_BLACK + 4] = new pawn();
-	piece_map[PAWN_ROW_BLACK + 5] = new pawn();
-	piece_map[PAWN_ROW_BLACK + 6] = new pawn();
-	piece_map[PAWN_ROW_BLACK + 7] = new pawn();
+	piece_map[BLACK_PAWN_ROW][0] = new pawn();
+	piece_map[BLACK_PAWN_ROW][1] = new pawn();
+	piece_map[BLACK_PAWN_ROW][2] = new pawn();
+	piece_map[BLACK_PAWN_ROW][3] = new pawn();
+	piece_map[BLACK_PAWN_ROW][4] = new pawn();
+	piece_map[BLACK_PAWN_ROW][5] = new pawn();
+	piece_map[BLACK_PAWN_ROW][6] = new pawn();
+	piece_map[BLACK_PAWN_ROW][7] = new pawn();
 
-	piece_map[KING_ROW_BLACK]      = new rook();
-	piece_map[KING_ROW_BLACK + 1]  = new knight();
-	piece_map[KING_ROW_BLACK + 2]  = new bishop();
-	piece_map[KING_ROW_BLACK + 3]  = new queen();
-	piece_map[KING_ROW_BLACK + 4]  = new king();
-	piece_map[KING_ROW_BLACK + 5]  = new bishop();
-	piece_map[KING_ROW_BLACK + 6]  = new knight();
-	piece_map[KING_ROW_BLACK + 7]  = new rook();
+	piece_map[BLACK_KING_ROW][0]  = new rook();
+	piece_map[BLACK_KING_ROW][1]  = new knight();
+	piece_map[BLACK_KING_ROW][2]  = new bishop();
+	piece_map[BLACK_KING_ROW][3]  = new queen();
+	piece_map[BLACK_KING_ROW][4]  = new king();
+	piece_map[BLACK_KING_ROW][5]  = new bishop();
+	piece_map[BLACK_KING_ROW][6]  = new knight();
+	piece_map[BLACK_KING_ROW][7]  = new rook();
 }
 
 inline void chess_map::init_white()
 {
-	piece_map[PAWN_ROW_WHITE]     = new pawn();
-	piece_map[PAWN_ROW_WHITE + 1] = new pawn();
-	piece_map[PAWN_ROW_WHITE + 2] = new pawn();
-	piece_map[PAWN_ROW_WHITE + 3] = new pawn();
-	piece_map[PAWN_ROW_WHITE + 4] = new pawn();
-	piece_map[PAWN_ROW_WHITE + 5] = new pawn();
-	piece_map[PAWN_ROW_WHITE + 6] = new pawn();
-	piece_map[PAWN_ROW_WHITE + 7] = new pawn();
-					   
-	piece_map[KING_ROW_WHITE]     = new rook();
-	piece_map[KING_ROW_WHITE + 1] = new knight();
-	piece_map[KING_ROW_WHITE + 2] = new bishop();
-	piece_map[KING_ROW_WHITE + 3] = new queen();
-	piece_map[KING_ROW_WHITE + 4] = new king();
-	piece_map[KING_ROW_WHITE + 5] = new bishop();
-	piece_map[KING_ROW_WHITE + 6] = new knight();
-	piece_map[KING_ROW_WHITE + 7] = new rook();
+	piece_map[WHITE_PAWN_ROW][0] = new pawn();
+	piece_map[WHITE_PAWN_ROW][1] = new pawn();
+	piece_map[WHITE_PAWN_ROW][2] = new pawn();
+	piece_map[WHITE_PAWN_ROW][3] = new pawn();
+	piece_map[WHITE_PAWN_ROW][4] = new pawn();
+	piece_map[WHITE_PAWN_ROW][5] = new pawn();
+	piece_map[WHITE_PAWN_ROW][6] = new pawn();
+	piece_map[WHITE_PAWN_ROW][7] = new pawn();
+			  
+	piece_map[WHITE_KING_ROW][0] = new rook();
+	piece_map[WHITE_KING_ROW][1] = new knight();
+	piece_map[WHITE_KING_ROW][2] = new bishop();
+	piece_map[WHITE_KING_ROW][3] = new queen();
+	piece_map[WHITE_KING_ROW][4] = new king();
+	piece_map[WHITE_KING_ROW][5] = new bishop();
+	piece_map[WHITE_KING_ROW][6] = new knight();
+	piece_map[WHITE_KING_ROW][7] = new rook();
 }
