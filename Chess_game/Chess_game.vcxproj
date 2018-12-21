@@ -25,6 +25,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\chess_map.cpp" />
     <ClCompile Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\controller.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4056FF1A-15E3-4235-9E01-A2656C633AB4}</ProjectGuid>

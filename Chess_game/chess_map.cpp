@@ -2,38 +2,40 @@
 
 chess_map::chess_map()
 {
-	init_black();
-	init_white();
+	//init_black();
+	//init_white();
+	piece_map[PAWN_ROW_BLACK] = new piece();
+	piece_map[PAWN_ROW_BLACK]->print_type();
 }
 
-short chess_map::get_position(short i, short j)
+inline short chess_map::get_position(short i, short j)
 {
 	return ((i * BOARD_SIDE_LENGTH) + j);
 }
 
-piece* chess_map::get_piece(short i, short j)
+inline piece* chess_map::get_piece(short i, short j)
 {
 	return piece_map[get_position(i, j)];
 }
 
-void chess_map::set_piece(short i, short j, piece* p)
+inline void chess_map::set_piece(short i, short j, piece* p)
 {
 	piece_map[get_position(i, j)] = p;
 }
 
-void chess_map::set_piece(short pos, piece* p)
+inline void chess_map::set_piece(short pos, piece* p)
 {
 	piece_map[pos] = p;
 }
 
-void chess_map::move_piece(piece* p, short new_position)
+inline void chess_map::move_piece(piece* p, short new_position)
 {
 	short old_position = p->get_current_position();
 	piece_map[new_position] = p;
 	piece_map[old_position] = new piece(); //encapsulation: should map know the piece's type?
 }
 
-void chess_map::init_black()
+inline void chess_map::init_black()
 {
 	piece_map[PAWN_ROW_BLACK]     = new pawn();
 	piece_map[PAWN_ROW_BLACK + 1] = new pawn();
@@ -54,7 +56,7 @@ void chess_map::init_black()
 	piece_map[KING_ROW_BLACK + 7]  = new rook();
 }
 
-void chess_map::init_white()
+inline void chess_map::init_white()
 {
 	piece_map[PAWN_ROW_WHITE]     = new pawn();
 	piece_map[PAWN_ROW_WHITE + 1] = new pawn();

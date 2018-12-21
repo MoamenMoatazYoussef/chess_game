@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include "chess_map.h"
 #include "piece.h"
@@ -18,3 +19,4 @@ private:
 
 };
 
+*/

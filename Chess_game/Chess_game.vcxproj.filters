@@ -62,5 +62,8 @@
     <ClCompile Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

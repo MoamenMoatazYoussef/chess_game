@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 
 #include "piece.h"
 
@@ -15,6 +16,7 @@
 #include "common.h"
 
 #define BOARD_SIDE_LENGTH 8
+#define BOARD_AREA (BOARD_SIDE_LENGTH*BOARD_SIDE_LENGTH)
 
 #define KING_ROW_BLACK 0 //The top left of the board, start of 1st row of black, pawns
 #define PAWN_ROW_BLACK 8 //The 2nd top left, start of 2nd row of black
@@ -25,7 +27,7 @@
 class chess_map
 {
 public:
-	inline chess_map();
+	chess_map();
 
 	~chess_map()
 	{
@@ -33,18 +35,30 @@ public:
 		// Check deallocation of memory, lots of pointers
 	}
 
-	inline void init_black();
-	inline void init_white();
+	void init_black();
+	void init_white();
 
-	inline short get_position(short i, short j);
+	short get_position(short i, short j);
 
-	inline piece* get_piece(short i, short j);
+	piece* get_piece(short i, short j);
 
-	inline void set_piece(short i, short j, piece* p);
+	void set_piece(short i, short j, piece* p);
 
-	inline void set_piece(short pos, piece* p);
+	void set_piece(short pos, piece* p);
 
-	inline void move_piece(piece* p, short new_position);
+	void move_piece(piece* p, short new_position);
+
+	void print_map()
+	{
+		for (int p = 0; p < BOARD_AREA; p++)
+		{
+			piece* pp = piece_map[p];
+			pp->print_type();
+			std::cout << " ";
+			if (p % 10 == 0)
+				std::cout << std::endl;
+		}
+	}
 
 private:
 	piece** piece_map = new piece*[BOARD_SIDE_LENGTH * BOARD_SIDE_LENGTH];

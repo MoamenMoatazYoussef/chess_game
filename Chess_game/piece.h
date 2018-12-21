@@ -21,6 +21,7 @@ public:
 	short get_current_position() { return _position; }
 	player get_player() { return _player; }
 	piece_type get_piece_type() { return _type; }
+	void print_type() { std::cout << (char)_type << " ";  }
 
 private:
 	piece_type _type;
