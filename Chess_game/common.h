@@ -1,13 +1,14 @@
-enum piece_type
-{
-	pawn,
-	rook,
-	knight,
-	bishop,
-	queen,
-	king,
-	none
-};
+#pragma once
+//enum piece_type
+//{
+//	pawn,
+//	rook,
+//	knight,
+//	bishop,
+//	queen,
+//	king,
+//	none
+//};
 
 enum player
 {

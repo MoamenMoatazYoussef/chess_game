@@ -1,17 +1,20 @@
 #pragma once
-#include "piece.h"
 #include "chess_map.h"
+#include "piece.h"
 
 class controller
 {
 public:
-	controller()
-	{
-		;
-	}
+	controller();
 	~controller();
 
+	void init_map()
+	{
+
+	}
+
 private:
-	chess_map _piece_map;
+	chess_map map;
+
 };
 
