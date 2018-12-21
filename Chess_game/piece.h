@@ -10,6 +10,7 @@ public:
 	{
 		_type = piece_type::None;
 	}
+
 	piece(piece_type _t, player _p, short _pos)
 	{
 		_position = _pos;

@@ -4,6 +4,7 @@ chess_map::chess_map()
 {
 	//init_black();
 	//init_white();
+	piece* p = new pawn();
 	piece_map[PAWN_ROW_BLACK] = new piece();
 	piece_map[PAWN_ROW_BLACK]->print_type();
 }
