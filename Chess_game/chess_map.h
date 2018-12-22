@@ -31,34 +31,34 @@ public:
 	void init_map();	//TODO: declare these as const so we can use inline for them at cpp
 	void init_black();	//However this isn't necessary, they're called only once
 	void init_white();
-	void init_middle();
 
 	chess_map() : piece_map(8, std::vector<piece*>(8))
 	{
-		//init_map();
-		//init_black();
-		init_middle();
-		init_white();
+		init_map();
 	}
 
 	~chess_map()
 	{
-		// Check deallocation of memory, lots of pointers
+		//TODO: deallocate piece_map
 	}
 
 	piece* get_piece(short, short);
+
+	void set_piece(short, short, piece*);
 
 	short get_row(piece*);
 
 	short get_col(piece*);
 
-	void set_piece(short, short , piece*);
+	void check_move(short, short, piece*);
+
+	void check_move(short, short, short, short);
 
 	void move_piece(short, short, piece*);
 
+	void move_piece(short, short, short, short);
 
-
-	void print_map() //TODO: print all pieces
+	void print_map() //TODO: move this to cpp
 	{
 		for (int row = 0; row < BOARD_SIDE_LENGTH; row++)
 		{
@@ -75,10 +75,4 @@ public:
 private:
 	std::vector<std::vector<piece*> > piece_map;
 	piece* p;
-	//piece* piece_map[8][8];
-	
-	// Item **m = new Item*[ n * n ];
-	// if you want to access position 1, 2, and n = 5, then:
-	// pos = (1 * 5) + 2;
-	// Item * it = m[pos];
 };

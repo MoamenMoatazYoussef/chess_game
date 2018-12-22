@@ -3,9 +3,19 @@
 //chess_map::chess_map()
 //{}	//TODO: write the constructor here, why not when we initialize chess_map in header?
 
-inline void chess_map::init_black()
+void chess_map::init_map() //TODO: find another way than this O(8^2) thing, although isn't bad for a chess game...
 {
-	piece_map[BLACK_PAWN_ROW][0] = new pawn();
+	for (int row = BLACK_PAWN_ROW + 1; row < WHITE_PAWN_ROW + 1; row++)
+		for (int col = 0; col < BOARD_SIDE_LENGTH; col++)
+			piece_map[row][col] = new none();
+
+	init_black();
+	init_white();
+}
+
+inline void chess_map::init_black() //TODO: there has to be a better, more compact way than this...
+{
+	piece_map[BLACK_PAWN_ROW][0] = new pawn(); //These can be vectorized for sure
 	piece_map[BLACK_PAWN_ROW][1] = new pawn();
 	piece_map[BLACK_PAWN_ROW][2] = new pawn();
 	piece_map[BLACK_PAWN_ROW][3] = new pawn();
@@ -24,7 +34,7 @@ inline void chess_map::init_black()
 	piece_map[BLACK_KING_ROW][7] = new rook();
 }
 
-inline void chess_map::init_white()
+inline void chess_map::init_white() //TODO: same, a better way, and vectorization
 {
 	piece_map[WHITE_PAWN_ROW][0] = new pawn();
 	piece_map[WHITE_PAWN_ROW][1] = new pawn();
@@ -45,19 +55,14 @@ inline void chess_map::init_white()
 	piece_map[WHITE_KING_ROW][7] = new rook();
 }
 
-void chess_map::init_middle()
-{
-	for (int row = BLACK_PAWN_ROW + 1; row < WHITE_PAWN_ROW + 1; row++)
-		for (int col = 0; col < BOARD_SIDE_LENGTH; col++)
-			piece_map[row][col] = new none();
-
-	init_black();
-	init_white();
-}
-
 inline piece* chess_map::get_piece(short row, short col)
 {
 	return piece_map[row][col];
+}
+
+inline void chess_map::set_piece(short row, short col, piece* p)
+{
+	piece_map[row][col] = p;
 }
 
 short chess_map::get_row(piece* p)
@@ -70,9 +75,18 @@ short chess_map::get_col(piece* p)
 	return p->get_col();
 }
 
-inline void chess_map::set_piece(short row, short col, piece* p)
+inline void chess_map::check_move(short r, short c, piece* p)
 {
-	piece_map[row][col] = p;
+	//if(!(p->check_move(r, c))) return; //TODO: find a better way than these if conditions...
+	//if(!(p->check_path(r, c))) return;
+	move_piece(r, c, p);
+}
+
+inline void chess_map::check_move(short new_r, short new_c, short old_r, short old_c)
+{
+	//if (!(p->check_move(new_r, new_c))) return; //TODO: same here
+	//if (!(p->check_path(new_r, new_c))) return;
+	move_piece(new_r, new_c, old_r, old_c);
 }
 
 inline void chess_map::move_piece(short new_row, short new_col, piece* p)
@@ -81,4 +95,13 @@ inline void chess_map::move_piece(short new_row, short new_col, piece* p)
 	short old_col = get_col(p);
 	piece_map[new_row][new_col] = p;
 	piece_map[old_row][old_col] = new piece(); //encapsulation: should map know the piece's type?
+}
+
+
+inline void chess_map::move_piece(short new_row, short new_col, short old_row, short old_col)
+{
+	piece* p = piece_map[old_row][old_col];
+	piece_map[new_row][new_col] = p;
+	piece_map[old_row][old_col] = new piece();
+	delete p; //to deallocate temp pointer
 }
