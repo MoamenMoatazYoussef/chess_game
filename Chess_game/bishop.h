@@ -4,5 +4,8 @@
 class bishop : public piece
 {
 public:
-	bishop();
+	bishop()
+	{
+		_type = piece_type::Bishop;
+	}
 };

@@ -49,7 +49,10 @@ void chess_map::init_middle()
 {
 	for (int row = BLACK_PAWN_ROW + 1; row < WHITE_PAWN_ROW + 1; row++)
 		for (int col = 0; col < BOARD_SIDE_LENGTH; col++)
-			piece_map[row][col] = new piece();
+			piece_map[row][col] = new none();
+
+	init_black();
+	init_white();
 }
 
 inline piece* chess_map::get_piece(short row, short col)

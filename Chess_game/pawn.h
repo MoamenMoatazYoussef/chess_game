@@ -4,5 +4,8 @@
 class pawn : public piece
 {
 public:
-	pawn();
+	pawn()
+	{
+		_type = piece_type::Pawn;
+	}
 };

@@ -4,5 +4,8 @@
 class king : public piece
 {
 public:
-	king();
+	king()
+	{
+		_type = piece_type::King;
+	}
 };

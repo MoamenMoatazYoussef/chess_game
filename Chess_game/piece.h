@@ -17,9 +17,15 @@ public:
 	short get_col() { return _col; }
 	player get_player() { return _player; }
 	piece_type get_piece_type() { return _type; }
+
+	void set_row(short r) { _row = r; }
+	void set_col(short c) { _col = c; }
+	void set_player(player p) { _player = p; }
+	void set_piece_type(piece_type t) { _type = t; }
+
 	void print_type() { std::cout << (char)_type << " ";  }
 
-private:
+protected:
 	piece_type _type;
 	player _player;
 	short _row;

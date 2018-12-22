@@ -11,6 +11,7 @@
 #include "queen.h"
 #include "king.h"
 #include "pawn.h"
+#include "none.h"
 
 #include "common.h"
 
@@ -37,7 +38,7 @@ public:
 		//init_map();
 		//init_black();
 		init_middle();
-		//init_white();
+		init_white();
 	}
 
 	~chess_map()
@@ -59,19 +60,21 @@ public:
 
 	void print_map() //TODO: print all pieces
 	{
-		for (int row = BLACK_PAWN_ROW + 1; row < WHITE_PAWN_ROW + 1; row++)
+		for (int row = 0; row < BOARD_SIDE_LENGTH; row++)
+		{
 			for (int col = 0; col < BOARD_SIDE_LENGTH; col++)
 			{
 				piece* pp = piece_map[row][col];
 				pp->print_type();
 				std::cout << " ";
-				if (col % 10 == 0)
-					std::cout << std::endl;
 			}
+			std::cout << std::endl;
+		}
 	}
 
 private:
 	std::vector<std::vector<piece*> > piece_map;
+	piece* p;
 	//piece* piece_map[8][8];
 	
 	// Item **m = new Item*[ n * n ];

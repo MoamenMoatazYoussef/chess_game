@@ -17,6 +17,7 @@
     <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\controller.h" />
     <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\king.h" />
     <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\knight.h" />
+    <ClInclude Include="..\..\..\..\..\..\Mo%27men\documents\visual studio 2013\Projects\Chess_game\Chess_game\none.h" />
     <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\pawn.h" />
     <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\piece.h" />
     <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\queen.h" />

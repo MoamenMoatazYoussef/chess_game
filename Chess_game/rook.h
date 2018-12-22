@@ -4,5 +4,8 @@
 class rook : public piece
 {
 public:
-	rook() {}
+	rook()
+	{
+		_type = piece_type::Rook;
+	}
 };

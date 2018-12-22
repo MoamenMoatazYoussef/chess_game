@@ -4,5 +4,8 @@
 class knight : public piece
 {
 public:
-	knight();
+	knight()
+	{
+		_type = piece_type::Knight;
+	}
 };
