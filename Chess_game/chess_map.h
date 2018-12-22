@@ -27,15 +27,11 @@ enum Row{ A, B, C, D, E, F, G };
 class chess_map
 {
 public:
-	chess_map() : piece_map(10) 
+	chess_map() : piece_map(8, std::vector<piece*>(8))
 	{
-		std::cout << piece_map.size() << std::endl;
-		//	piece_map.push_back({ new piece*, new piece* });
-		//	piece_map.push_back({ new piece*, new piece* });
-		//std::cout << piece_map.size() << std::endl;
 		//init_map();
 		//init_black();
-		//init_middle();
+		init_middle();
 		//init_white();
 	}
 		// add std::vector<piece*>(10, new piece*) to initialization of piece_map

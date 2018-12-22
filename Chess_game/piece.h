@@ -6,18 +6,11 @@
 class piece
 {
 public:
-	piece()
-	{
-		_type = piece_type::None;
-	}
+	piece() : _type(piece_type::None) { }
 
-	piece(piece_type _t, player _p, short _r, short _c)
-	{
-		_row = _r;
-		_col = _c;
-		_player = _p;
-		_type = _t;
-	}
+	piece(piece_type _t, player _p, short _r, short _c) : 
+		_row(_r), _col(_c), _type(_t), _player(_p) { }
+
 	~piece();
 
 	short get_row() { return _row; }
