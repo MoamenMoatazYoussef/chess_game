@@ -58,7 +58,16 @@ public:
 
 	void move_piece(short, short, short, short);
 
-	void print_map() //TODO: move this to cpp
+	void print_map();
+
+private:
+	std::vector<std::vector<piece*> > piece_map;
+	piece* p;
+};
+
+/////////////////////////////////// Helper functions /////////////////////////////////
+
+inline void chess_map::print_map() //TODO: move this to cpp
 	{
 		for (int row = 0; row < BOARD_SIDE_LENGTH; row++)
 		{
@@ -71,8 +80,3 @@ public:
 			std::cout << std::endl;
 		}
 	}
-
-private:
-	std::vector<std::vector<piece*> > piece_map;
-	piece* p;
-};

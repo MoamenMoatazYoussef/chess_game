@@ -8,4 +8,10 @@ public:
 	{
 		_type = piece_type::Knight;
 	}
+
+	knight(player _p)
+	{
+		_type = piece_type::Knight;
+		_player = _p;
+	}
 };

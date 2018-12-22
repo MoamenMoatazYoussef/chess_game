@@ -14,6 +14,6 @@ enum piece_type
 
 enum player
 {
-	white,
-	black
+	white = -1,
+	black = 1
 };

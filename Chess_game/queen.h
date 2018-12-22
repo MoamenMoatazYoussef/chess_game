@@ -8,4 +8,10 @@ public:
 	{
 		_type = piece_type::Queen;
 	}
+
+	queen(player _p)
+	{
+		_type = piece_type::Queen;
+		_player = _p;
+	}
 };

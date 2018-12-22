@@ -15,52 +15,52 @@ void chess_map::init_map() //TODO: find another way than this O(8^2) thing, alth
 
 inline void chess_map::init_black() //TODO: there has to be a better, more compact way than this...
 {
-	piece_map[BLACK_PAWN_ROW][0] = new pawn(); //These can be vectorized for sure
-	piece_map[BLACK_PAWN_ROW][1] = new pawn();
-	piece_map[BLACK_PAWN_ROW][2] = new pawn();
-	piece_map[BLACK_PAWN_ROW][3] = new pawn();
-	piece_map[BLACK_PAWN_ROW][4] = new pawn();
-	piece_map[BLACK_PAWN_ROW][5] = new pawn();
-	piece_map[BLACK_PAWN_ROW][6] = new pawn();
-	piece_map[BLACK_PAWN_ROW][7] = new pawn();
+	piece_map[BLACK_PAWN_ROW][0] = new pawn(player::black); //These can be vectorized for sure
+	piece_map[BLACK_PAWN_ROW][1] = new pawn(player::black);
+	piece_map[BLACK_PAWN_ROW][2] = new pawn(player::black);
+	piece_map[BLACK_PAWN_ROW][3] = new pawn(player::black);
+	piece_map[BLACK_PAWN_ROW][4] = new pawn(player::black);
+	piece_map[BLACK_PAWN_ROW][5] = new pawn(player::black);
+	piece_map[BLACK_PAWN_ROW][6] = new pawn(player::black);
+	piece_map[BLACK_PAWN_ROW][7] = new pawn(player::black);
 
-	piece_map[BLACK_KING_ROW][0] = new rook();
-	piece_map[BLACK_KING_ROW][1] = new knight();
-	piece_map[BLACK_KING_ROW][2] = new bishop();
-	piece_map[BLACK_KING_ROW][3] = new queen();
-	piece_map[BLACK_KING_ROW][4] = new king();
-	piece_map[BLACK_KING_ROW][5] = new bishop();
-	piece_map[BLACK_KING_ROW][6] = new knight();
-	piece_map[BLACK_KING_ROW][7] = new rook();
+	piece_map[BLACK_KING_ROW][0] = new rook(player::black);
+	piece_map[BLACK_KING_ROW][1] = new knight(player::black);
+	piece_map[BLACK_KING_ROW][2] = new bishop(player::black);
+	piece_map[BLACK_KING_ROW][3] = new queen(player::black);
+	piece_map[BLACK_KING_ROW][4] = new king(player::black);
+	piece_map[BLACK_KING_ROW][5] = new bishop(player::black);
+	piece_map[BLACK_KING_ROW][6] = new knight(player::black);
+	piece_map[BLACK_KING_ROW][7] = new rook(player::black);
 }
 
 inline void chess_map::init_white() //TODO: same, a better way, and vectorization
 {
-	piece_map[WHITE_PAWN_ROW][0] = new pawn();
-	piece_map[WHITE_PAWN_ROW][1] = new pawn();
-	piece_map[WHITE_PAWN_ROW][2] = new pawn();
-	piece_map[WHITE_PAWN_ROW][3] = new pawn();
-	piece_map[WHITE_PAWN_ROW][4] = new pawn();
-	piece_map[WHITE_PAWN_ROW][5] = new pawn();
-	piece_map[WHITE_PAWN_ROW][6] = new pawn();
-	piece_map[WHITE_PAWN_ROW][7] = new pawn();
+	piece_map[WHITE_PAWN_ROW][0] = new pawn(player::white);
+	piece_map[WHITE_PAWN_ROW][1] = new pawn(player::white);
+	piece_map[WHITE_PAWN_ROW][2] = new pawn(player::white);
+	piece_map[WHITE_PAWN_ROW][3] = new pawn(player::white);
+	piece_map[WHITE_PAWN_ROW][4] = new pawn(player::white);
+	piece_map[WHITE_PAWN_ROW][5] = new pawn(player::white);
+	piece_map[WHITE_PAWN_ROW][6] = new pawn(player::white);
+	piece_map[WHITE_PAWN_ROW][7] = new pawn(player::white);
 
-	piece_map[WHITE_KING_ROW][0] = new rook();
-	piece_map[WHITE_KING_ROW][1] = new knight();
-	piece_map[WHITE_KING_ROW][2] = new bishop();
-	piece_map[WHITE_KING_ROW][3] = new queen();
-	piece_map[WHITE_KING_ROW][4] = new king();
-	piece_map[WHITE_KING_ROW][5] = new bishop();
-	piece_map[WHITE_KING_ROW][6] = new knight();
-	piece_map[WHITE_KING_ROW][7] = new rook();
+	piece_map[WHITE_KING_ROW][0] = new rook(player::white);
+	piece_map[WHITE_KING_ROW][1] = new knight(player::white);
+	piece_map[WHITE_KING_ROW][2] = new bishop(player::white);
+	piece_map[WHITE_KING_ROW][3] = new queen(player::white);
+	piece_map[WHITE_KING_ROW][4] = new king(player::white);
+	piece_map[WHITE_KING_ROW][5] = new bishop(player::white);
+	piece_map[WHITE_KING_ROW][6] = new knight(player::white);
+	piece_map[WHITE_KING_ROW][7] = new rook(player::white);
 }
 
-inline piece* chess_map::get_piece(short row, short col)
+piece* chess_map::get_piece(short row, short col)
 {
 	return piece_map[row][col];
 }
 
-inline void chess_map::set_piece(short row, short col, piece* p)
+void chess_map::set_piece(short row, short col, piece* p)
 {
 	piece_map[row][col] = p;
 }
@@ -75,7 +75,7 @@ short chess_map::get_col(piece* p)
 	return p->get_col();
 }
 
-inline void chess_map::check_move(short r, short c, piece* p)
+void chess_map::check_move(short r, short c, piece* p)
 {
 	//if(!(p->check_move(r, c))) return; //TODO: find a better way than these if conditions...
 	//if(!(p->check_path(r, c))) return;
@@ -89,7 +89,7 @@ inline void chess_map::check_move(short new_r, short new_c, short old_r, short o
 	move_piece(new_r, new_c, old_r, old_c);
 }
 
-inline void chess_map::move_piece(short new_row, short new_col, piece* p)
+void chess_map::move_piece(short new_row, short new_col, piece* p)
 {
 	short old_row = get_row(p);
 	short old_col = get_col(p);
