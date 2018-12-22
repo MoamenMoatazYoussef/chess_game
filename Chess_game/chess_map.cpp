@@ -1,13 +1,8 @@
 #include "chess_map.h"
 
-chess_map::chess_map()
-{
-	for (int row = 2; row < BOARD_SIDE_LENGTH - 2; row++)
-		for (int col = 0; col < BOARD_SIDE_LENGTH; col++)
-			piece_map[row][col] = new piece();
-	//init_black();
-	//init_white();
-}
+//chess_map::chess_map()
+//{}	//TODO: write the constructor here, why not when we initialize chess_map in header?
+
 
 inline piece* chess_map::get_piece(short row, short col)
 {
@@ -37,44 +32,65 @@ inline void chess_map::move_piece(short new_row, short new_col, piece* p)
 	piece_map[old_row][old_col] = new piece(); //encapsulation: should map know the piece's type?
 }
 
+inline void chess_map::init_map()
+{
+	/*
+	piece_map.resize(8);
+	for (int row = 0; row < BOARD_SIDE_LENGTH; row++)
+	{
+		piece_map[row].resize(8);
+		std::fill(piece_map[row].begin(), piece_map[row].end(), new piece*);
+	}
+	*/
+}
+
+
 inline void chess_map::init_black()
 {
-	piece_map[BLACK_PAWN_ROW][0] = new pawn();
-	piece_map[BLACK_PAWN_ROW][1] = new pawn();
-	piece_map[BLACK_PAWN_ROW][2] = new pawn();
-	piece_map[BLACK_PAWN_ROW][3] = new pawn();
-	piece_map[BLACK_PAWN_ROW][4] = new pawn();
-	piece_map[BLACK_PAWN_ROW][5] = new pawn();
-	piece_map[BLACK_PAWN_ROW][6] = new pawn();
-	piece_map[BLACK_PAWN_ROW][7] = new pawn();
+	piece_map[BLACK_PAWN_ROW].push_back(new pawn());
+	piece_map[BLACK_PAWN_ROW].push_back(new pawn());
+	piece_map[BLACK_PAWN_ROW].push_back(new pawn());
+	piece_map[BLACK_PAWN_ROW].push_back(new pawn());
+	piece_map[BLACK_PAWN_ROW].push_back(new pawn());
+	piece_map[BLACK_PAWN_ROW].push_back(new pawn());
+	piece_map[BLACK_PAWN_ROW].push_back(new pawn());
+	piece_map[BLACK_PAWN_ROW].push_back(new pawn());
 
-	piece_map[BLACK_KING_ROW][0]  = new rook();
-	piece_map[BLACK_KING_ROW][1]  = new knight();
-	piece_map[BLACK_KING_ROW][2]  = new bishop();
-	piece_map[BLACK_KING_ROW][3]  = new queen();
-	piece_map[BLACK_KING_ROW][4]  = new king();
-	piece_map[BLACK_KING_ROW][5]  = new bishop();
-	piece_map[BLACK_KING_ROW][6]  = new knight();
-	piece_map[BLACK_KING_ROW][7]  = new rook();
+	piece_map[BLACK_KING_ROW].push_back(new rook());
+	piece_map[BLACK_KING_ROW].push_back(new knight());
+	piece_map[BLACK_KING_ROW].push_back(new bishop());
+	piece_map[BLACK_KING_ROW].push_back(new queen());
+	piece_map[BLACK_KING_ROW].push_back(new king());
+	piece_map[BLACK_KING_ROW].push_back(new bishop());
+	piece_map[BLACK_KING_ROW].push_back(new knight());
+	piece_map[BLACK_KING_ROW].push_back(new rook());
 }
 
 inline void chess_map::init_white()
 {
-	piece_map[WHITE_PAWN_ROW][0] = new pawn();
-	piece_map[WHITE_PAWN_ROW][1] = new pawn();
-	piece_map[WHITE_PAWN_ROW][2] = new pawn();
-	piece_map[WHITE_PAWN_ROW][3] = new pawn();
-	piece_map[WHITE_PAWN_ROW][4] = new pawn();
-	piece_map[WHITE_PAWN_ROW][5] = new pawn();
-	piece_map[WHITE_PAWN_ROW][6] = new pawn();
-	piece_map[WHITE_PAWN_ROW][7] = new pawn();
-			  
-	piece_map[WHITE_KING_ROW][0] = new rook();
-	piece_map[WHITE_KING_ROW][1] = new knight();
-	piece_map[WHITE_KING_ROW][2] = new bishop();
-	piece_map[WHITE_KING_ROW][3] = new queen();
-	piece_map[WHITE_KING_ROW][4] = new king();
-	piece_map[WHITE_KING_ROW][5] = new bishop();
-	piece_map[WHITE_KING_ROW][6] = new knight();
-	piece_map[WHITE_KING_ROW][7] = new rook();
+	piece_map[WHITE_PAWN_ROW].push_back(new pawn());
+	piece_map[WHITE_PAWN_ROW].push_back(new pawn());
+	piece_map[WHITE_PAWN_ROW].push_back(new pawn());
+	piece_map[WHITE_PAWN_ROW].push_back(new pawn());
+	piece_map[WHITE_PAWN_ROW].push_back(new pawn());
+	piece_map[WHITE_PAWN_ROW].push_back(new pawn());
+	piece_map[WHITE_PAWN_ROW].push_back(new pawn());
+	piece_map[WHITE_PAWN_ROW].push_back(new pawn());
+
+	piece_map[WHITE_KING_ROW].push_back(new rook());
+	piece_map[WHITE_KING_ROW].push_back(new knight());
+	piece_map[WHITE_KING_ROW].push_back(new bishop());
+	piece_map[WHITE_KING_ROW].push_back(new queen());
+	piece_map[WHITE_KING_ROW].push_back(new king());
+	piece_map[WHITE_KING_ROW].push_back(new bishop());
+	piece_map[WHITE_KING_ROW].push_back(new knight());
+	piece_map[WHITE_KING_ROW].push_back(new rook());
+}
+
+inline void chess_map::init_middle()
+{
+	//for (int row = 2; row < BOARD_SIDE_LENGTH - 2; row++)
+		//std::fill(piece_map[row].begin(), piece_map[row].end(), new piece*);
+		//for (int col = 0; col < BOARD_SIDE_LENGTH; col++)
+			//piece_map[row].push_back(new piece());
 }
