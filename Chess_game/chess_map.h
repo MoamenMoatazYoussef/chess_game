@@ -27,6 +27,11 @@ enum Row{ A, B, C, D, E, F, G };
 class chess_map
 {
 public:
+	void init_map();	//TODO: declare these as const so we can use inline for them at cpp
+	void init_black();	//However this isn't necessary, they're called only once
+	void init_white();
+	void init_middle();
+
 	chess_map() : piece_map(8, std::vector<piece*>(8))
 	{
 		//init_map();
@@ -34,7 +39,6 @@ public:
 		init_middle();
 		//init_white();
 	}
-		// add std::vector<piece*>(10, new piece*) to initialization of piece_map
 
 	~chess_map()
 	{
@@ -51,14 +55,11 @@ public:
 
 	void move_piece(short, short, piece*);
 
-	void init_map();
-	void init_black();
-	void init_white();
-	void init_middle();
 
-	void print_map()
+
+	void print_map() //TODO: print all pieces
 	{
-		for (int row = 0; row < BOARD_SIDE_LENGTH; row++)
+		for (int row = BLACK_PAWN_ROW + 1; row < WHITE_PAWN_ROW + 1; row++)
 			for (int col = 0; col < BOARD_SIDE_LENGTH; col++)
 			{
 				piece* pp = piece_map[row][col];

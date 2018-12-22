@@ -6,5 +6,6 @@
 int main()
 {
 	chess_map c;
+	c.print_map();
 	return 0;
 }
