@@ -82,7 +82,7 @@ void chess_map::check_move(short r, short c, piece* p)
 	move_piece(r, c, p);
 }
 
-inline void chess_map::check_move(short new_r, short new_c, short old_r, short old_c)
+void chess_map::check_move(short new_r, short new_c, short old_r, short old_c)
 {
 	//if (!(p->check_move(new_r, new_c))) return; //TODO: same here
 	//if (!(p->check_path(new_r, new_c))) return;
@@ -98,9 +98,10 @@ void chess_map::move_piece(short new_row, short new_col, piece* p)
 }
 
 
-inline void chess_map::move_piece(short new_row, short new_col, short old_row, short old_col)
+void chess_map::move_piece(short new_row, short new_col, short old_row, short old_col)
 {
-	piece* p = piece_map[old_row][old_col];
+	piece* p = new piece();
+	p = piece_map[old_row][old_col];
 	piece_map[new_row][new_col] = p;
 	piece_map[old_row][old_col] = new piece();
 	delete p; //to deallocate temp pointer

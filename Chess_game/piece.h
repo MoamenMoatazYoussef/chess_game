@@ -13,7 +13,7 @@ public:
 	piece(piece_type _t, player _p, short _r, short _c) : 
 		_row(_r), _col(_c), _type(_t), _player(_p) { }
 
-	~piece();
+	~piece() { }
 
 	short get_row() { return _row; }
 	short get_col() { return _col; }
@@ -26,6 +26,8 @@ public:
 	void set_piece_type(piece_type t) { _type = t; }
 
 	void print_type() { std::cout << (char)_type << " ";  }
+
+	virtual bool check_move(short r2, short c2) { }
 
 protected:
 	piece_type _type;
