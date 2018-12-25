@@ -10,6 +10,9 @@ public:
 
 	//piece(player _p) : _type(piece_type::None), _player(_p) { }
 
+	piece(short _r, short _c) :
+		_row(_r), _col(_c) { }
+
 	piece(piece_type _t, player _p, short _r, short _c) : 
 		_row(_r), _col(_c), _type(_t), _player(_p) { }
 
@@ -27,7 +30,7 @@ public:
 
 	void print_type() { std::cout << (char)_type << " ";  }
 
-	virtual bool check_move(short r2, short c2) { }
+	virtual bool check_move(short r2, short c2) { return false; } //TODO: remove this return, what is that?
 
 protected:
 	piece_type _type;

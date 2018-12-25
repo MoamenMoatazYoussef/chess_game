@@ -35,6 +35,7 @@ public:
 	chess_map() : piece_map(8, std::vector<piece*>(8))
 	{
 		init_map();
+		//unit_test_check_move();
 	}
 
 	~chess_map()
@@ -60,6 +61,10 @@ public:
 
 	void print_map();
 
+	void unit_test_check_move();
+
+	void unit_test_print_result(bool b); //TODO: Only for testing, should be removed after
+
 private:
 	std::vector<std::vector<piece*> > piece_map;
 	piece* p;
@@ -80,3 +85,4 @@ inline void chess_map::print_map() //TODO: move this to cpp
 			std::cout << std::endl;
 		}
 	}
+

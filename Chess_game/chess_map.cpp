@@ -106,3 +106,178 @@ void chess_map::move_piece(short new_row, short new_col, short old_row, short ol
 	piece_map[old_row][old_col] = new piece();
 	delete p; //to deallocate temp pointer
 }
+
+
+///////////////////////////////////////////// Helper functions ////////////////////////////////////
+
+void chess_map::unit_test_print_result(bool b) //TODO: Only for testing, should be removed after
+{
+	std::cout << b << std::endl;
+}
+
+void chess_map::unit_test_check_move()
+{
+	pawn*   p = new pawn(player::black, 3, 3);
+	rook*   r = new rook(3, 3);
+	knight* n = new knight(3, 3);
+	bishop* b = new bishop(3, 3);
+	queen*  q = new queen(3, 3);
+	king*   k = new king(3, 3);
+
+	/////////////////////////////////////////////////////////////////////// PAWN TESTED AND OK
+	//Pawn:
+	//-----
+	/*
+	std::cout << "Pawn test cases" << std::endl;
+	std::cout << "---------------" << std::endl; //Correct anster
+	//Test cases at r = 3, c = 3:
+	// r2 = 4, c2 = 3
+	unit_test_print_result(p->check_move(4, 3)); //True
+	// r2 = 2, c2 = 3
+	unit_test_print_result(p->check_move(2, 3)); //False (No black/white here)
+	// r2 = 5, c2 = 3
+	unit_test_print_result(p->check_move(5, 3)); //False
+	// r2 = 4, c2 = 4
+	unit_test_print_result(p->check_move(4, 4)); //False
+	*/
+	/////////////////////////////////////////////////////////////////////// ROOK TESTED AND OK
+	/*
+	std::cout << "Rook test cases" << std::endl;
+	std::cout << "---------------" << std::endl;
+	//Test cases at r,c = 3, 3:
+	// r2 = 3, c2 = 6
+	unit_test_print_result(r->check_move(3, 6)); //True
+	// r2 = 6, c2 = 3
+	unit_test_print_result(r->check_move(3, 6)); //True
+	// r2 = 3, c2 = 1
+	unit_test_print_result(r->check_move(3, 1)); //True
+	// r2 = 1, c2 = 3
+	unit_test_print_result(r->check_move(1, 3)); //True
+	// r2 = 4, c2 = 4
+	unit_test_print_result(r->check_move(4, 4)); //False
+	// r2 = 2, c2 = 5
+	unit_test_print_result(r->check_move(2, 5)); //False 
+	*/
+	////////////////////////////////////////////////////////////////////// KNIGHT TESTED AND OK
+	/*
+	std::cout << "Knight test cases" << std::endl;
+	std::cout << "-----------------" << std::endl;
+	//Test cases at 3, 3:
+	// r2 = 5, c2 = 4
+	unit_test_print_result(n->check_move(5, 4)); //All are true
+	// r2 = 5, c2 = 2	   
+	unit_test_print_result(n->check_move(5, 2));
+	// r2 = 4, c2 = 5	   
+	unit_test_print_result(n->check_move(4, 5));
+	// r2 = 4, c2 = 1	   
+	unit_test_print_result(n->check_move(4, 1));
+
+	// r2 = 4, c2 = 5	   
+	unit_test_print_result(n->check_move(4, 5));
+	// r2 = 2, c2 = 5	   
+	unit_test_print_result(n->check_move(2, 5));
+	// r2 = 5, c2 = 4	   
+	unit_test_print_result(n->check_move(5, 4));
+	// r2 = 1, c2 = 4	   
+	unit_test_print_result(n->check_move(1, 4));
+
+	// r2 = 1, c2 = 4	   
+	unit_test_print_result(n->check_move(1, 4));
+	// r2 = 1, c2 = 2	   
+	unit_test_print_result(n->check_move(1, 2));
+	// r2 = 2, c2 = 5	   
+	unit_test_print_result(n->check_move(2, 5));
+	// r2 = 2, c2 = 1	   
+	unit_test_print_result(n->check_move(2, 1));
+
+	// r2 = 5, c2 = 2	   
+	unit_test_print_result(n->check_move(5, 2));
+	// r2 = 1, c2 = 2	   
+	unit_test_print_result(n->check_move(1, 2));
+	// r2 = 4, c2 = 1	   
+	unit_test_print_result(n->check_move(4, 1));
+	// r2 = 2, c2 = 1	   
+	unit_test_print_result(n->check_move(2, 1));
+	*/
+	////////////////////////////////////////////////////////////////////// BISHOP TESTED AND OK
+	/*
+	std::cout << "Bishop test cases" << std::endl;
+	std::cout << "-----------------" << std::endl;
+	//Test cases at r,c = 3, 3:
+	// r2 = 6, c2 = 6
+	unit_test_print_result(b->check_move(6, 6)); //True
+	// r2 = 1, c2 = 5
+	unit_test_print_result(b->check_move(5, 1)); //True
+	// r2 = 5, c2 = 1
+	unit_test_print_result(b->check_move(1, 5)); //True
+	// r2 = 1, c2 = 1
+	unit_test_print_result(b->check_move(1, 1)); //True
+	// r2 = 5, c2 = 6
+	unit_test_print_result(b->check_move(5, 6)); //False
+	// r2 = 3, c2 = 6
+	unit_test_print_result(b->check_move(3, 6)); //False
+	// r2 = 8, c2 = 8
+	unit_test_print_result(b->check_move(8, 8)); //Should be false...
+	*/
+	////////////////////////////////////////////////////////////////////// QUEEN TESTED AND OK
+	/*
+	std::cout << "Queen test cases" << std::endl;
+	std::cout << "----------------" << std::endl;
+	//Test cases at r = 3, c = 3:
+	//Both rook and bishop test cases
+	// r2 = 3, c2 = 6
+	unit_test_print_result(r->check_move(3, 6)); //True
+	// r2 = 6, c2 = 3
+	unit_test_print_result(r->check_move(3, 6)); //True
+	// r2 = 3, c2 = 1
+	unit_test_print_result(r->check_move(3, 1)); //True
+	// r2 = 1, c2 = 3
+	unit_test_print_result(r->check_move(1, 3)); //True
+	// r2 = 4, c2 = 4
+	unit_test_print_result(r->check_move(4, 4)); //False
+	// r2 = 2, c2 = 5
+	unit_test_print_result(r->check_move(2, 5)); //False
+	std::cout << "Diagonal movement" << std::endl;
+	// r2 = 6, c2 = 6
+	unit_test_print_result(b->check_move(6, 6)); //True
+	// r2 = 1, c2 = 5
+	unit_test_print_result(b->check_move(5, 1)); //True
+	// r2 = 5, c2 = 1
+	unit_test_print_result(b->check_move(1, 5)); //True
+	// r2 = 1, c2 = 1
+	unit_test_print_result(b->check_move(1, 1)); //True
+	// r2 = 5, c2 = 6
+	unit_test_print_result(b->check_move(5, 6)); //False
+	// r2 = 3, c2 = 6
+	unit_test_print_result(b->check_move(3, 6)); //False
+	// r2 = 8, c2 = 8
+	unit_test_print_result(b->check_move(8, 8)); //Should be false...
+	*/
+	////////////////////////////////////////////////////////////////////// KING TESTED AND OK
+	/*
+	std::cout << "King test cases" << std::endl;
+	std::cout << "---------------" << std::endl;
+	//Test cases at r,c = 3, 3:
+	// r2 = 3, c2 = 4
+	unit_test_print_result(k->check_move(3, 4)); //All should be true I think...
+	// r2 = 4, c2 = 4
+	unit_test_print_result(k->check_move(4, 4));
+	// r2 = 4, c2 = 3
+	unit_test_print_result(k->check_move(4, 3));
+	// r2 = 4, c2 = 2
+	unit_test_print_result(k->check_move(4, 2));
+	// r2 = 3, c2 = 2
+	unit_test_print_result(k->check_move(3, 2));
+	// r2 = 2, c2 = 2
+	unit_test_print_result(k->check_move(2, 2));
+	// r2 = 2, c2 = 3
+	unit_test_print_result(k->check_move(2, 3));
+	// r2 = 2, c2 = 4
+	unit_test_print_result(k->check_move(2, 4));
+	// r2 = 5, c2 = 4
+	unit_test_print_result(k->check_move(5, 4));
+	// r2 = 3, c2 = 5
+	unit_test_print_result(k->check_move(3, 5));
+	*/
+	//////////////////////////////////////////////////////////////////////
+}

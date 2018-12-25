@@ -15,6 +15,12 @@ public:
 		_player = _p;
 	}
 
+	queen(short r, short c) //TODO: for unit testing only, should be removed after
+	{
+		_row = r;
+		_col = c;
+	}
+
 	bool check_move(short r2, short c2)
 	{
 		short r = get_row();
@@ -23,5 +29,8 @@ public:
 			|| ((r2 == r) || (c2 == c)));
 			//Moves horizontal, vertical, and diagonal, so this is a combination of rook and bishop
 			//TODO: I think there's a better way than this...
+
+		//Test cases at r = 3, c = 3:
+		//Both rook and bishop test cases
 	}
 };
