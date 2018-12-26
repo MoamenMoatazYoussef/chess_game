@@ -57,6 +57,8 @@ public:
 
 	bool check_path(short, short, piece*);
 
+	bool can_capture(piece* , piece* ); //TODO: Should I save captured pieces in an array??
+
 	void move_piece(short, short, piece*);
 
 	void move_piece(short, short, short, short); //TODO: remove this because useless, get_piece + move_piece
