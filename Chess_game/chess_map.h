@@ -2,6 +2,8 @@
 
 #include <vector>
 #include <iostream>
+#include <algorithm>
+#include <cmath>
 
 #include "piece.h"
 
@@ -51,13 +53,13 @@ public:
 
 	short get_col(piece*);
 
-	void check_move(short, short, piece*);
+	bool check_move(short, short, piece*);
 
-	void check_move(short, short, short, short);
+	bool check_path(short, short, piece*);
 
 	void move_piece(short, short, piece*);
 
-	void move_piece(short, short, short, short);
+	void move_piece(short, short, short, short); //TODO: remove this because useless, get_piece + move_piece
 
 	void print_map();
 

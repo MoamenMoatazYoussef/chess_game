@@ -75,19 +75,46 @@ short chess_map::get_col(piece* p)
 	return p->get_col();
 }
 
-void chess_map::check_move(short r, short c, piece* p)
+bool chess_map::check_move(short r, short c, piece* p)
 {
-	//if(!(p->check_move(r, c))) return; //TODO: find a better way than these if conditions...
-	//if(!(p->check_path(r, c))) return;
-	move_piece(r, c, p);
+	return p->check_move(r, c);
 }
 
-void chess_map::check_move(short new_r, short new_c, short old_r, short old_c)
-{
-	//if (!(p->check_move(new_r, new_c))) return; //TODO: same here
-	//if (!(p->check_path(new_r, new_c))) return;
-	move_piece(new_r, new_c, old_r, old_c);
+bool chess_map::check_path(short r1, short c1, piece*) //I named them r1, c1 to be similar to the 
+{													   //linear equation y2 - y1 = m(x2 - x1)
+	short r2 = p->get_row();						   //where m is the slope
+	short c2 = p->get_col();
+
+	short no_of_squares = std::max(abs(r2 - r1), abs(c2 - c1));
+
+
+	/*
+	float m, c;
+
+	if (r2 != r1) //It's a vertical line, we'll represent it using flipped axes
+	{
+		m = (c2 - c1) / (r2 - r1);
+		c = m*r1 + c1;
+	}
+	else
+	{
+		m = 0;
+		c = r1;
+	}
+
+	for (short i = 0; i < no_of_squares-1; i++)
+	{
+		short x = r1 + i;
+		short y = (m*x + c);
+		if (piece_map[x][y]->get_piece_type() != piece_type::None)
+			return false;
+	}
+	*/
+	if (piece_map[r2][c2]->get_piece_type() != piece_type::None)	
+		; //TODO: capture this piece and move
+	return true;
 }
+
 
 void chess_map::move_piece(short new_row, short new_col, piece* p)
 {
@@ -102,8 +129,9 @@ void chess_map::move_piece(short new_row, short new_col, short old_row, short ol
 {
 	piece* p = new piece();
 	p = piece_map[old_row][old_col];
-	piece_map[new_row][new_col] = p;
-	piece_map[old_row][old_col] = new piece();
+	move_piece(new_row, new_col, p); //TODO: Is that a good practice?
+	//piece_map[new_row][new_col] = p;
+	//piece_map[old_row][old_col] = new piece();
 	delete p; //to deallocate temp pointer
 }
 
