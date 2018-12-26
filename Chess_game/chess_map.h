@@ -38,6 +38,9 @@ public:
 	{
 		init_map();
 		//unit_test_check_move();
+		piece_map[4][5] = new pawn();
+		piece_map[4][5]->set_row(4);
+		piece_map[4][5]->set_col(5);
 	}
 
 	~chess_map()

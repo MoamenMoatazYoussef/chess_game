@@ -80,23 +80,25 @@ bool chess_map::check_move(short r, short c, piece* p)
 	return p->check_move(r, c);
 }
 
-bool chess_map::check_path(short r1, short c1, piece* p) //I named them r1, c1 to be similar to the 
+bool chess_map::check_path(short r2, short c2, piece* p) //I named them r1, c1 to be similar to the 
 {													   //linear equation but in radial coordinates
-	short r2 = p->get_row();						   //where theta is angle, r is radial distance
-	short c2 = p->get_col();						   //and x, y are cartesian coordinates
+	short r1 = p->get_row();						   //where theta is angle, r is radial distance
+	short c1 = p->get_col();						   //and x, y are cartesian coordinates
 													   //X-axis: columns, Y-axis: rows
 	if (p->get_piece_type() != piece_type::Knight)
 	{ //If it's a knight, then only check and capture.
 		short no_of_squares = std::max(abs(r2 - r1), abs(c2 - c1));
 
-		double theta = asin(r2 - r1);
+		short rad    = sqrt(pow(r2 - r1, 2) + pow(c2 - c1, 2));
+		double theta = asin((r2 - r1)/rad);
 
-		for (short i = 0; i < no_of_squares - 1; i++)
+		short x_increase = round(sin(theta)); //Because x-axis is equivalent to COLUMN change
+		short y_increase = round(cos(theta));
+
+		for (short i = 1; i < no_of_squares; i++)
 		{
-			short x_increase = cos(theta) >= 0 ? 1 : -1; //to round to nearest 1 or -1
-			short y_increase = sin(theta) >= 0 ? 1 : -1; //TODO: a better way than this
-			short x = (c1 + i*x_increase);
-			short y = (r1 + i*y_increase);
+			short x = (r1 + i*x_increase);
+			short y = (c1 + i*y_increase);
 			if (piece_map[x][y]->get_piece_type() != piece_type::None)
 				return false;
 		}
@@ -106,6 +108,7 @@ bool chess_map::check_path(short r1, short c1, piece* p) //I named them r1, c1 t
 
 bool chess_map::can_capture(piece* attacking, piece* defending)
 {
+	std::cout << defending->get_piece_type() << "  " << attacking->get_piece_type() << std::endl;
 	return (attacking->get_player() != defending->get_player());
 }
 
