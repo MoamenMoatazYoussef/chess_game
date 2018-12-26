@@ -81,35 +81,23 @@ bool chess_map::check_move(short r, short c, piece* p)
 }
 
 bool chess_map::check_path(short r1, short c1, piece*) //I named them r1, c1 to be similar to the 
-{													   //linear equation y2 - y1 = m(x2 - x1)
-	short r2 = p->get_row();						   //where m is the slope
-	short c2 = p->get_col();
-
+{													   //linear equation but in radial coordinates
+	short r2 = p->get_row();						   //where theta is angle, r is radial distance
+	short c2 = p->get_col();						   //and x, y are cartesian coordinates
+													   //X-axis: columns, Y-axis: rows
 	short no_of_squares = std::max(abs(r2 - r1), abs(c2 - c1));
 
+	double theta = asin(r2 - r1);
 
-	/*
-	float m, c;
-
-	if (r2 != r1) //It's a vertical line, we'll represent it using flipped axes
+	for (short i = 0; i < no_of_squares - 1; i++)
 	{
-		m = (c2 - c1) / (r2 - r1);
-		c = m*r1 + c1;
-	}
-	else
-	{
-		m = 0;
-		c = r1;
-	}
-
-	for (short i = 0; i < no_of_squares-1; i++)
-	{
-		short x = r1 + i;
-		short y = (m*x + c);
+		short x_increase = cos(theta) >= 0 ? ceil(cos(theta)) : floor(cos(theta));
+		short y_increase = sin(theta) >= 0 ? ceil(sin(theta)) : floor(sin(theta));
+		short x = (c1 + i*x_increase);
+		short y = (r1 + i*y_increase);
 		if (piece_map[x][y]->get_piece_type() != piece_type::None)
 			return false;
 	}
-	*/
 	if (piece_map[r2][c2]->get_piece_type() != piece_type::None)	
 		; //TODO: capture this piece and move
 	return true;

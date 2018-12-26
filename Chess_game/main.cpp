@@ -1,13 +1,15 @@
 #include <iostream>
+#include <cmath>
 
 #include "chess_map.h"
 #include "piece.h"
 
 int main()
 {
-	chess_map c;
-	c.print_map();
+	std::cout << ceil(-0.7) << std::endl;
+	std::cout << ceil(0.7) << std::endl;
+	//chess_map c;
+	//c.print_map();
 	//c.move_piece(4, 4, 6, 2);
-	c.print_map();
 	return 0;
 }
