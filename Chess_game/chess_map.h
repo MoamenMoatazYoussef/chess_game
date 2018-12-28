@@ -60,17 +60,21 @@ public:
 
 	void set_player(player p);
 
-	bool check_current_player(player p);
+	bool check_current_player(short, short);
 
-	bool check_move(short, short, piece*);
+	bool check_move(short, short, piece*); //TODO: remove this because it's useless
 
-	bool check_path(short, short, piece*);
+	bool check_move(short, short, short, short);
+
+	bool check_path(short, short, piece*); //TODO: remove this because it's useless
+
+	bool check_path(short, short, short, short);
 
 	bool can_capture(piece* , piece* ); //TODO: Should I save captured pieces in an array??
 
-	void move_piece(short, short, piece*);
+	void move_piece(short, short, piece*); //TODO: remove this because it's useless
 
-	void move_piece(short, short, short, short); //TODO: remove this because useless, get_piece + move_piece
+	void move_piece(short, short, short, short);
 
 	void print_map();
 

@@ -85,14 +85,20 @@ void chess_map::set_player(player p)
 	current_player = p;
 }
 
-bool chess_map::check_current_player(player p)
+bool chess_map::check_current_player(short r, short c)
 {
-	return (current_player == p);
+	return (piece_map[r][c]->get_player() == current_player);
 }
 
 bool chess_map::check_move(short r, short c, piece* p)
 {
 	return p->check_move(r, c);
+}
+
+bool chess_map::check_move(short r1, short c1, short r2, short c2)
+{
+	piece* p = piece_map[r1][c1];
+	return p->check_move(r2, c2);
 }
 
 bool chess_map::check_path(short r2, short c2, piece* p) //I named them r1, c1 to be similar to the 
@@ -119,6 +125,12 @@ bool chess_map::check_path(short r2, short c2, piece* p) //I named them r1, c1 t
 		}
 	}
 	return (can_capture(p, piece_map[r2][c2]));	
+}
+
+bool chess_map::check_path(short r1, short c1, short r2, short c2)
+{
+	piece* p = piece_map[r1][c1];
+	return check_path(r2, c2, p);
 }
 
 bool chess_map::can_capture(piece* attacking, piece* defending)

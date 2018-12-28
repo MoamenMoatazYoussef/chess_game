@@ -4,6 +4,8 @@
 #include <map>
 #include <vector>
 
+#define OFFSET_FOR_INDEX 1
+
 class input_screen
 {
 public:
@@ -28,7 +30,7 @@ public:
 		}
 	}
 
-	std::vector<std::pair<short, short> > get_parse_send()
+	std::vector<short> get_parse_send()
 	{
 		std::string input = get_input();
 		std::vector<std::string> input_split;
@@ -36,16 +38,30 @@ public:
 		parse_string_by_delimiter(input, " ", input_split);
 
 		short old_row = row_map[input_split[0].substr(0, 1)];
-		short old_col = std::stoi(input_split[0].substr(1, 1));
+		short old_col = std::stoi(input_split[0].substr(1, 1)) - OFFSET_FOR_INDEX;
 
 		short new_row = row_map[input_split[2].substr(0, 1)];
-		short new_col = std::stoi(input_split[2].substr(1, 1));
+		short new_col = std::stoi(input_split[2].substr(1, 1)) - OFFSET_FOR_INDEX;
 
-		std::pair<short, short> old_rc(old_row, old_col);
-		std::pair<short, short> new_rc(new_row, new_col);
-		std::vector<std::pair<short, short> > final_move({ old_rc, new_rc });
+		std::vector<short> final_move({ old_row, old_col, new_row, new_col });
 
 		return final_move;
+	}
+
+	void input_error(short e)
+	{
+		switch (e)
+		{
+			case(0):
+				std::cout << "ERROR: a parameter is missing, please input TWO rows and TWO columns: r1, c1, r2, c2." << std::endl;
+				break;
+			case(1) :
+				std::cout << "ERROR: row/col is out of bounds." << std::endl;
+				break;
+			case(2):
+				std::cout << "ERROR: trying to move other player's piece" << std::endl;
+				break;
+		}
 	}
 
 
