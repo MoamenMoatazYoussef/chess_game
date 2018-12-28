@@ -34,7 +34,7 @@ public:
 	void init_black();	//However this isn't necessary, they're called only once
 	void init_white();
 
-	chess_map() : piece_map(8, std::vector<piece*>(8))
+	chess_map() : piece_map(8, std::vector<piece*>(8)), current_player(player::white)
 	{
 		init_map();
 		//unit_test_check_move();
@@ -56,6 +56,12 @@ public:
 
 	short get_col(piece*);
 
+	player get_player();
+
+	void set_player(player p);
+
+	bool check_current_player(player p);
+
 	bool check_move(short, short, piece*);
 
 	bool check_path(short, short, piece*);
@@ -74,7 +80,7 @@ public:
 
 private:
 	std::vector<std::vector<piece*> > piece_map;
-	piece* p;
+	player current_player;
 };
 
 /////////////////////////////////// Helper functions /////////////////////////////////

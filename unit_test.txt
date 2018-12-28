@@ -1,0 +1,7 @@
+To be unit tested:
+------------------
+1- check_move.
+2- check_path.
+3- get_input.
+4- parse_string_by_delimiter.
+5- get_parse_send

@@ -15,6 +15,7 @@
     <ClInclude Include="chess_map.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="controller.h" />
+    <ClInclude Include="input_screen.h" />
     <ClInclude Include="king.h" />
     <ClInclude Include="knight.h" />
     <ClInclude Include="none.h" />
@@ -26,6 +27,7 @@
   <ItemGroup>
     <ClCompile Include="chess_map.cpp" />
     <ClCompile Include="controller.cpp" />
+    <ClCompile Include="input_screen.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

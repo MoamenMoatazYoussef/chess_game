@@ -57,6 +57,9 @@
     <ClInclude Include="piece.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
+    <ClInclude Include="input_screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files\components</Filter>
     </ClCompile>
     <ClCompile Include="controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="input_screen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -75,6 +75,21 @@ short chess_map::get_col(piece* p)
 	return p->get_col();
 }
 
+player chess_map::get_player()
+{
+	return current_player;
+}
+
+void chess_map::set_player(player p)
+{
+	current_player = p;
+}
+
+bool chess_map::check_current_player(player p)
+{
+	return (current_player == p);
+}
+
 bool chess_map::check_move(short r, short c, piece* p)
 {
 	return p->check_move(r, c);
