@@ -24,48 +24,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\bishop.h">
+    <ClInclude Include="bishop.h">
       <Filter>Header Files\pieces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\king.h">
+    <ClInclude Include="king.h">
       <Filter>Header Files\pieces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\knight.h">
+    <ClInclude Include="knight.h">
       <Filter>Header Files\pieces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\pawn.h">
+    <ClInclude Include="none.h">
       <Filter>Header Files\pieces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\queen.h">
+    <ClInclude Include="pawn.h">
       <Filter>Header Files\pieces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\rook.h">
+    <ClInclude Include="queen.h">
       <Filter>Header Files\pieces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\chess_map.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="rook.h">
+      <Filter>Header Files\pieces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\piece.h">
-      <Filter>Header Files\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\common.h">
-      <Filter>Header Files\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\controller.h">
+    <ClInclude Include="controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Mo%27men\documents\visual studio 2013\Projects\Chess_game\Chess_game\none.h">
-      <Filter>Header Files\pieces</Filter>
+    <ClInclude Include="chess_map.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="piece.h">
+      <Filter>Header Files\components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\chess_map.cpp">
-      <Filter>Source Files\components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Mo%27men\Documents\Visual Studio 2013\Projects\Chess_game\Chess_game\controller.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="chess_map.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
