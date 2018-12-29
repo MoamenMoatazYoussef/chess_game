@@ -102,4 +102,3 @@ inline void chess_map::print_map() //TODO: move this to cpp
 			std::cout << std::endl;
 		}
 	}
-

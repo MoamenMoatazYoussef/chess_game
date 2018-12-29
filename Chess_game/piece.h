@@ -30,7 +30,9 @@ public:
 
 	void print_type() { std::cout << (char)_type << " ";  }
 
-	virtual bool check_move(short r2, short c2) { return false; } //TODO: remove this return, what is that?
+	virtual move_type check_move(short r2, short c2) { return normal_move; } //TODO: remove this return, what is that?
+
+	virtual move_type special_move(short r2, short c2) { return normal_move; }
 
 protected:
 	piece_type _type;

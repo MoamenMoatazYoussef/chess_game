@@ -92,28 +92,28 @@ bool chess_map::check_current_player(short r, short c)
 
 bool chess_map::check_move(short r, short c, piece* p)
 {
-	return p->check_move(r, c);
+	return (p->check_move(r, c) != move_type::illegal_move);
 }
 
 bool chess_map::check_move(short r1, short c1, short r2, short c2)
 {
 	piece* p = piece_map[r1][c1];
-	return p->check_move(r2, c2);
+	return (p->check_move(r2, c2) != move_type::illegal_move);
 }
 
-bool chess_map::check_path(short r2, short c2, piece* p) //I named them r1, c1 to be similar to the 
-{													   //linear equation but in radial coordinates
-	short r1 = p->get_row();						   //where theta is angle, r is radial distance
-	short c1 = p->get_col();						   //and x, y are cartesian coordinates
-													   //X-axis: columns, Y-axis: rows
+bool chess_map::check_path(short r2, short c2, piece* p)  
+{													
+	short r1 = p->get_row();						
+	short c1 = p->get_col();						
+													
 	if (p->get_piece_type() != piece_type::Knight)
-	{ //If it's a knight, then only check and capture.
+	{
 		short no_of_squares = std::max(abs(r2 - r1), abs(c2 - c1));
 
 		short rad    = sqrt(pow(r2 - r1, 2) + pow(c2 - c1, 2));
 		double theta = asin((r2 - r1)/rad);
 
-		short x_increase = round(sin(theta)); //Because x-axis is equivalent to COLUMN change
+		short x_increase = round(sin(theta));
 		short y_increase = round(cos(theta));
 
 		for (short i = 1; i < no_of_squares; i++)
@@ -145,7 +145,7 @@ void chess_map::move_piece(short new_row, short new_col, piece* p)
 	short old_row = get_row(p);
 	short old_col = get_col(p);
 	piece_map[new_row][new_col] = p;
-	piece_map[old_row][old_col] = new piece(); //encapsulation: should map know the piece's type?
+	piece_map[old_row][old_col] = new piece();
 }
 
 

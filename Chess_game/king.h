@@ -21,23 +21,12 @@ public:
 		_col = c;
 	}
 
-	bool check_move(short r2, short c2)
+	move_type check_move(short r2, short c2)
 	{
 		short r = get_row();
 		short c = get_col();
-		return ((abs(r2 - r) == 1 || abs(c2 - c) == 1));
-			//Moves horizontal, vertical, and diagonal, by step 1
-			//So, check if difference of one of them is 1, if one or both then is correct
-		//Test cases at r,c = 3, 3:
-		// r2 = 3, c2 = 4
-		// r2 = 4, c2 = 4
-		// r2 = 4, c2 = 3
-		// r2 = 4, c2 = 2
-		// r2 = 3, c2 = 2
-		// r2 = 2, c2 = 2
-		// r2 = 2, c2 = 3
-		// r2 = 2, c2 = 4
-		// r2 = 5, c2 = 4
-		// r2 = 3, c2 = 5
+		if (abs(r2 - r) == 1 || abs(c2 - c) == 1)
+			return move_type::normal_move;
+		return move_type::illegal_move;
 	}
 };

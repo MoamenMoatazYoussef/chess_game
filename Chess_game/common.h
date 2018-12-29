@@ -18,3 +18,11 @@ enum player
 	black = 1,
 	no_player = 0
 };
+
+enum move_type
+{
+	normal_move,
+	capture_move,
+	special_move,
+	illegal_move
+};

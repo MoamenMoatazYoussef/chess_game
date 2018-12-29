@@ -21,16 +21,12 @@ public:
 		_col = c;
 	}
 
-	bool check_move(short r2, short c2)
+	move_type check_move(short r2, short c2)
 	{
 		short r = get_row();
 		short c = get_col();
-		return ((abs(r2 - r) == abs(c2 - c))
-			|| ((r2 == r) || (c2 == c)));
-			//Moves horizontal, vertical, and diagonal, so this is a combination of rook and bishop
-			//TODO: I think there's a better way than this...
-
-		//Test cases at r = 3, c = 3:
-		//Both rook and bishop test cases
+		if ((abs(r2 - r) == abs(c2 - c)) || ((r2 == r) || (c2 == c)))
+			return move_type::normal_move;
+		return move_type::illegal_move;
 	}
 };
